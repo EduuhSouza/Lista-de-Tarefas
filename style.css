@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: fonte1;
+    src: url(fonte/Anime\ Inept.otf);
+}
+
+
+body{
+
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* min-height: 100vh; */
+    transition: background 0.5s linear;
+    background-color: rgb(0, 0, 0);
+    background-image: url(https://cdnb.artstation.com/p/assets/images/images/023/112/219/original/pierre-broissand-renderwithoutfgparticles.gif?1578138738);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/*------- darkmode -----------*/
+
+body.dark{
+   background: white;
+    color: black;    
+}
+
+
+body.dark{
+    background-image: url(https://wallpaperaccess.com/full/1648327.jpg);
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+ }
+
+
+section{
+    position: absolute;
+    top: 0;
+    left: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.darkmode label{
+    width: 80px;
+    height: 80px;
+    /* background-color: #ff0000; */
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    
+    
+}
+
+
+.darkmode input{
+    position: absolute;
+    opacity: 0;
+
+    
+
+}
+
+
+/* ------------icones---------- */
+.sun{
+    position: absolute;
+    font-size: 3em;
+    color: #666;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.644));
+    transform: scale(0);
+    transition: 1s ease;
+}
+
+.darkmode input:checked~.sun{
+    transition-delay: .8s ;
+    transform: scale(1) rotate(360deg);
+}
+
+
+.moon{
+    font-size: 3em;
+    color: #666;
+    filter: drop-shadow(0 0 2px rgba(0, 0 ,0, .5));
+    transition: 1s ease;
+
+}
+
+.darkmode input:checked~.moon{
+    transition-delay: 0s ;
+    transform: rotate(360deg) scale(0);
+}
+
+/*--------final icones------------- */
+
+.toggle{
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #2b2b2b;
+    border-radius: 50%;
+    box-shadow: 
+    inset 0 8px 60px rgba(0, 0 ,0, .1),
+    inset 0 8px 8px rgba(0, 0 ,0, .1),
+    inset 0 -4px 4px rgba(0, 0 ,0, .1);
+    z-index: -1;
+    transition: 1s;
+}
+
+.darkmode input:checked~.toggle{
+    background: #f8f8f8;
+
+}
+
+
+
+/* ------------caixa fundo--------- */
+.box{
+    position: relative;
+    margin: 10% auto 0;
+    width: 40%;
+    height: auto;
+    /* background: linear-gradient(0deg , black , rgb(31, 31, 31));
+ */
+    background: #888888c0;
+    padding: 2em;
+
+}
+
+.glow::before , .glow::after{
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg , #e6fb046e , #ff660093 , #00ff6671, #00ffff81, #ff00ff, #ff0099 , #6e0dd0, #ff3300 , #099fff);
+    background-size: 400%;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0 ;
+    }
+    100%{
+        background-position: 0 0 ;
+    }
+
+}
+
+.glow::after{
+    filter: blur(10px);
+    opacity: 0.99;
+}
+
+
+
+
+/* -------lista de tarefa-------- */
+
+h1{
+    color: rgb(0, 0, 0);
+    font-family: fonte1;
+}
+
+
+#taskInput{
+    width: 70%;
+    margin-bottom: 10px;
+    padding: 1.5em;
+}
+
+#taskList{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: fonte1;
+    
+}
+
+.taskItem{
+    margin-bottom: 5px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.taskItem button{
+    margin-left: 5px;
+    text-align: center;
+    padding: 1.5em;
+    box-shadow:  0 0 10px #ff00ff;
+
+}
+
+button{
+    
+    padding: 1.5em;
+    border-radius: 1em 1em 2em ;
+    box-shadow: 0 2px 10px #fb04da;
+    transition: all .5s ease-in-out;
+
+}
+
+
+button:hover{
+    filter: opacity(50%);
+    box-shadow: 0 0 20px #ff0099;
+}
+
+footer{
+    margin-top: 20%;
+    color: white;
+    background-color: #2b2b2b86;
+    box-shadow: 0 0 10px rgb(151, 150, 150);
+    padding: 2em;
+    font-family: fonte1;
+    /* margin: 13em ; */
+
+}
